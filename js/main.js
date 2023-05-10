@@ -1,7 +1,7 @@
 const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D","E","F"];
 const btnGenerate = document.getElementById('btn-generate');
 const btnCopy = document.getElementById('btn-copy');
-const color = document.querySelector('.color');
+const hexSpan = document.querySelector('.hexSpan');
 const rgbSpan = document.querySelector('.rgbSpan');
 
 btnGenerate.addEventListener('click', function(){
@@ -9,7 +9,7 @@ btnGenerate.addEventListener('click', function(){
     for (let i = 0 ; i < 6 ; i++){
         hexColor += hex[getRandomNumber()];
     }
-    color.textContent = hexColor;
+    hexSpan.textContent = hexColor;
     document.body.style.backgroundColor = hexColor;
 
     let r = parseInt((hexColor.slice(1,3)),16);
@@ -24,7 +24,7 @@ function getRandomNumber(){
 };
 
 btnCopy.addEventListener('click', function(){
-    navigator.clipboard.writeText(color.innerHTML);
+    navigator.clipboard.writeText(hexSpan.innerHTML);
 });
 
 rgbSpan.addEventListener('click', function(){
