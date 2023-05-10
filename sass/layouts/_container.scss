@@ -1,0 +1,29 @@
+.container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+    &__colors{
+        background-color: #1e1e1e;
+        color: rgb(245,245,247);
+        border-radius: .25em;
+        width: 400px;
+        padding: 1em 1em 0.5em;
+        margin: auto;
+        justify-content: center;
+    }
+    
+    & .color{
+        color:#3bc3f0;
+    }
+}
+
+main{
+    margin: 25vh auto;
+    display: flex;
+    justify-content: center;
+}
+
+.rgbSpan{
+    cursor: pointer;
+}
