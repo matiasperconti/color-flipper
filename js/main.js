@@ -3,6 +3,8 @@ const btnGenerate = document.getElementById('btn-generate');
 const btnCopy = document.getElementById('btn-copy');
 const hexSpan = document.querySelector('.hexSpan');
 const rgbSpan = document.querySelector('.rgbSpan');
+const mainContainer = document.querySelector('.container');
+const btnEspanol = document.getElementById('spanish');
 
 btnGenerate.addEventListener('click', function(){
     let hexColor = '#';
@@ -30,3 +32,25 @@ btnCopy.addEventListener('click', function(){
 rgbSpan.addEventListener('click', function(){
     navigator.clipboard.writeText(rgbSpan.innerHTML);
 });
+
+
+function ajaxInit(url, method = 'get') {
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.send();
+    return xhr;
+};
+
+btnEspanol.addEventListener('click', e => {
+    e.preventDefault();
+
+    const xhr = ajaxInit('templates/spanish.html');
+    xhr.addEventListener('load', e =>{
+        if (e.target.status === 200){
+            const partialHTML = e.target.responseText;
+            mainContainer.innerHTML = partialHTML;
+        };
+    });
+});
+
+
